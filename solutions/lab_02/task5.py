@@ -11,8 +11,8 @@ n = None
 
 print(a, 'Размер(Byte):', sys.getsizeof(a))
 print(b, 'Размер(Byte):', sys.getsizeof(b))
-print(tuple, 'Размер(Byte):', sys.getsizeof(tuple))
-print(str, 'Размер(Byte):', sys.getsizeof(str))
+print(tup, 'Размер(Byte):', sys.getsizeof(tuple))
+print(text, 'Размер(Byte):', sys.getsizeof(str))
 print(t, 'Размер(Byte):', sys.getsizeof(t))
 print(n, 'Размер(Byte):', sys.getsizeof(n))
 
