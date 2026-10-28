@@ -3,8 +3,8 @@ import sys, tracemalloc
 a=[]
 b=[1,2,3,4,5,6,7,8,9,10]
 
-tuple =(1,2,3,4,5,6,7,8,9,10)
-str = 'abcdefghij'
+tup =(1,2,3,4,5,6,7,8,9,10)
+text = 'abcdefghij'
 
 t=12345
 n = None

@@ -32,7 +32,7 @@ print('=======================================')
 
 #Дополнение программы
 second = [10, 20, 30]
-print(f'first == second: {first==second}')
+print(f'first == second: {first == second}')
 print(f'first is second: {first is second}')
 second.append(40)
 print(first, second)
