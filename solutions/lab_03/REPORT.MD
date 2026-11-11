@@ -603,7 +603,7 @@ def outer_function():
     course_tracker = "Базовый курс" # локальное имя outer_function; для inner_function оно объемлющее (Enclosing)
 
     def inner_function():
-        nonlocal course_tracker # counter ищется во вложенной области, локальное не создаётся
+        nonlocal course_tracker
         course_tracker = "Продвинутый курс"
         print(f"[inner] course: {course}")
         print(f"[inner] course_tracker: {course_tracker}")
