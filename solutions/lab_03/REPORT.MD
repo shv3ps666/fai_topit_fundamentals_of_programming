@@ -456,10 +456,10 @@ def request(insert_data):
     if not parts:
         return "Пустой запрос"
 
-    cmd = parts[0]
-    args = parts[1:]
+    first = parts[0]
+    other = parts[1:]
 
-    match cmd, args:
+    match first, other:
         case "student", [name]:
             if name in attempts:
                 return attempts[name]
