@@ -669,7 +669,7 @@ print(add_result(6))
 
 Объясните ошибку через жизненный цикл объекта значения по умолчанию.
 
-Значение по умолчанию вычисляется один раз при выполнении def и хранится в самой функции (add_result). Все вызовы без аргумента получают один и тот же объект. Если функция его меняет(так как список изменяемый), изменения остаются до следующего вызова.
+Значение по умолчанию вычисляется один раз при выполнении def и     хранится в самой функции (add_result). Все вызовы без аргумента получают один и тот же объект. Если функция его меняет(так как список изменяемый), изменения остаются до следующего вызова.
 
 ```python
 def add_result_fixed(value, results=None):
@@ -777,6 +777,8 @@ students = {
 Для каждой публичной функции сформулируйте контракт: допустимые входные данные, результат и возможные особые случаи. Объясните декомпозицию программы и оцените сложность построения общей статистики.
 
 ```python
+import copy
+
 students = {
     "Анна": [78, 91, 84, 88],
     "Борис": [60, 72, 68],
@@ -888,7 +890,11 @@ def format_report(student_data, group_data):
             with_results.append(item)
 
     ranking = sorted(with_results, key=lambda item: item["mean"], reverse=True)
-    group_mean_str = "-" if group_data["mean"] is None else f"{group_data['mean']:.1f}"
+        
+    if group_data["mean"] is None:
+        group_mean_str = "-"
+    else:
+        group_mean_str = f"{group_data['mean']:.1f}"
 
     lines = [
         "==========================================",
@@ -927,7 +933,7 @@ def build_report(data):
 
 def run_checks():
     # 1. Обычный набор данных
-    snapshot = {name: results.copy() for name, results in students.items()}
+    snapshot = copy.deepcopy(students)
     group = group_summary(students)
     assert group["student_count"] == 4
     assert group["result_count"] == 13

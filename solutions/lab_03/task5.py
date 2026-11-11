@@ -1,3 +1,5 @@
+import copy
+
 students = {
     "Анна": [78, 91, 84, 88],
     "Борис": [60, 72, 68],
@@ -109,7 +111,10 @@ def format_report(student_data, group_data):
             with_results.append(item)
 
     ranking = sorted(with_results, key=lambda item: item["mean"], reverse=True)
-    group_mean_str = "-" if group_data["mean"] is None else f"{group_data['mean']:.1f}"
+    if group_data["mean"] is None:
+        group_mean_str = "-"
+    else:
+        group_mean_str = f"{group_data['mean']:.1f}"
 
     lines = [
         "==========================================",
@@ -148,7 +153,7 @@ def build_report(data):
 
 def run_checks():
     # 1. Обычный набор данных
-    snapshot = {name: results.copy() for name, results in students.items()}
+    snapshot = copy.deepcopy(students)
     group = group_summary(students)
     assert group["student_count"] == 4
     assert group["result_count"] == 13
